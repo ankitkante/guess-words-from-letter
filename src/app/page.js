@@ -38,8 +38,9 @@ export default function Home() {
 
   const verifyWord = async (word) => {
     try {
-      const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-      return response.ok;
+      const response = await fetch(`/api/dictionary?word=${word}`);
+      const result = await response.json();
+      return result.valid;
     } catch (error) {
       return false;
     }
