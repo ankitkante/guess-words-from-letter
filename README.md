@@ -1,3 +1,6 @@
+# Installation
+1. NodeJS v22.20.0. There is a `.nvmrc` file that can be used to auto switch to this node version. Install nvm and then read [this](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to add the auto-switch script based on your OS.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
