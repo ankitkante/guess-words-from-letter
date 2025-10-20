@@ -1,10 +1,12 @@
 'use client';
+import { Spinner } from "@/components/ui/spinner";
 import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
   const letters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
   const [selectedLetter, setSelectedLetter] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [inputWord, setInputWord] = useState('');
   const inputRef = useRef(null);
@@ -23,6 +25,7 @@ export default function Home() {
     }
 
     const isValid = await verifyWord(inputWord);
+
     if (isValid) {
       alert('Valid word!');
       setInputWord('');
@@ -37,12 +40,15 @@ export default function Home() {
   };
 
   const verifyWord = async (word) => {
+    setLoading(true)
     try {
       const response = await fetch(`/api/verifyWord?word=${word}`);
       const result = await response.json();
       return result.valid;
     } catch (error) {
       return false;
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -67,15 +73,18 @@ export default function Home() {
           <label className="block mb-2">
             Enter words that start with '{selectedLetter}':
           </label>
-          <input
-            ref={inputRef}
-            type="text"
-            value={inputWord}
-            onChange={(e) => setInputWord(e.target.value)}
-            onKeyDown={handleKeyPress}
-            className="border rounded-lg p-2 w-64"
-            placeholder={`Type a word starting with ${selectedLetter}...`}
-          />
+          <div className="flex items-center">
+            <input
+              ref={inputRef}
+              type="text"
+              value={inputWord}
+              onChange={(e) => setInputWord(e.target.value)}
+              onKeyDown={handleKeyPress}
+              className="border rounded-lg p-2 w-64 m-2"
+              placeholder={`Type a word starting with ${selectedLetter}...`}
+            />
+            {loading && <Spinner/>}
+          </div>
         </div>
       )}
     </div>
