@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5a4340e9-a1ab-4f30-95b5-93ac14031306/deploy-status)](https://app.netlify.com/projects/guess-words-from-letter/deploys)
+
 # Installation
 1. NodeJS v22.20.0. There is a `.nvmrc` file that can be used to auto switch to this node version. Install nvm and then read [this](https://github.com/nvm-sh/nvm?tab=readme-ov-file#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) to add the auto-switch script based on your OS.
 
