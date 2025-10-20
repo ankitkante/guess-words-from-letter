@@ -71,7 +71,7 @@ export default function Home() {
       {selectedLetter && (
         <div className="mt-4">
           <label className="block mb-2">
-            Enter words that start with '{selectedLetter}':
+            Enter words that start with &apos;{selectedLetter}&apos;:
           </label>
           <div className="flex items-center">
             <input
