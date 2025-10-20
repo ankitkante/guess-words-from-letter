@@ -81,7 +81,7 @@ export default function Home() {
               onChange={(e) => setInputWord(e.target.value)}
               onKeyDown={handleKeyPress}
               className="border rounded-lg p-2 w-64 m-2"
-              placeholder={`Type a word starting with ${selectedLetter}...`}
+              placeholder={`Enter here`}
             />
             {loading && <Spinner/>}
           </div>
