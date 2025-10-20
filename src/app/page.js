@@ -38,7 +38,7 @@ export default function Home() {
 
   const verifyWord = async (word) => {
     try {
-      const response = await fetch(`/api/dictionary?word=${word}`);
+      const response = await fetch(`/api/verifyWord?word=${word}`);
       const result = await response.json();
       return result.valid;
     } catch (error) {
