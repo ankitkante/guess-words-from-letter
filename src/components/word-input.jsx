@@ -29,10 +29,12 @@ export default function WordInput({
 		const isValid = await verifyWord(inputWord);
 
 		if (isValid) {
-			setWordList(prevList => [...prevList, inputWord]);
+			setWordList(prevList => [...prevList, { word: inputWord, point: 1 }]);
 			setInputWord('');
 		} else {
-			alert('Not a valid word');
+			setWordList(prevList => [...prevList, { word: inputWord, point: -1 }]);
+			setInputWord('');
+
 		}
 	};
 	const handleKeyPress = (e) => {
