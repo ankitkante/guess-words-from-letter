@@ -1,3 +1,5 @@
+import { Button } from "./ui/button";
+
 export default function WordList({
   wordList = []
 }) {
@@ -5,9 +7,9 @@ export default function WordList({
     <div className="flex flex-col p-8">
       {
         wordList.map((word, index) => (
-          <div key={index} className="p-2 border-b">
+          <Button key={index} className="p-4 mb-2 bg-green-600 hover:bg-green-600">
             {word}
-          </div>
+          </Button>
         ))
       }
     </div>
