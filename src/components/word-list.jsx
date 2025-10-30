@@ -10,20 +10,22 @@ export default function WordList({
       {wordList.length === 0 ? (
         <p className="text-gray-500 text-sm">No words added yet</p>
       ) : (
-        wordList.map((item, index) => (
-          <div className="flex items-center mb-2" key={item.word}>
-            <Button
-              key={index}
-              className={cn(
-                "p-3 mr-2 text-sm",
-                item.point === -1 ? "bg-red-600 hover:bg-red-600": "bg-green-600 hover:bg-green-600"
-              )}
-            >
-              {item.word}
-            </Button>
-            <span className="font-medium">{item.point === -1 ? '-1' : '+1'}</span>
-          </div>
-        ))
+        <div className="flex flex-wrap gap-2">
+          {wordList.map((item, index) => (
+            <div className="flex items-center gap-1" key={item.word}>
+              <Button
+                key={index}
+                className={cn(
+                  "p-3 text-sm",
+                  item.point === -1 ? "bg-red-600 hover:bg-red-600": "bg-green-600 hover:bg-green-600"
+                )}
+              >
+                {item.word}
+              </Button>
+              <span className="font-medium">{item.point === -1 ? '-1' : '+1'}</span>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
