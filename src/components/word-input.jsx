@@ -57,24 +57,24 @@ export default function WordInput({
 	};
 
 	return (
-		<div className="font-sans flex flex-col items-center justify-center min-h-screen p-8 gap-4 sm:p-20">
-			<h1 className="text-4xl font-bold text-center">
+		<div className="font-sans flex flex-col items-center justify-center p-4 gap-3 sm:p-8">
+			<h1 className="text-2xl sm:text-3xl font-bold text-center">
 				{selectedLetter ? `You selected ${selectedLetter}` : "Please select a letter"}
 			</h1>
-			<div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-4">
+			<div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 sm:gap-3">
 				{letters.map((letter) => (
 					<button
 						key={letter}
 						onClick={() => setSelectedLetter(letter)}
-						className="w-16 h-16 flex items-center justify-center border rounded-lg hover:bg-gray-100 text-2xl"
+						className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border rounded-lg hover:bg-gray-100 text-xl sm:text-2xl"
 					>
 						{letter}
 					</button>
 				))}
 			</div>
 			{selectedLetter && (
-				<div className="mt-4">
-					<label className="block mb-2">
+				<div className="mt-2">
+					<label className="block mb-2 text-sm sm:text-base">
 						Enter words that start with &apos;{selectedLetter}&apos;:
 					</label>
 					<div className="flex items-center">
@@ -84,7 +84,7 @@ export default function WordInput({
 							value={inputWord}
 							onChange={(e) => setInputWord(e.target.value)}
 							onKeyDown={handleKeyPress}
-							className="border rounded-lg p-2 w-64 m-2"
+							className="border rounded-lg p-2 w-48 sm:w-64 m-2"
 							placeholder={`Enter here`}
 						/>
 						{loading && <Spinner />}
