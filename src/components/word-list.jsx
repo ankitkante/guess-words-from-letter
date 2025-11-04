@@ -6,7 +6,7 @@ export default function WordList({
 
   return (
     <div className="flex flex-col p-4 sm:p-6">
-      <h2 className="text-xl font-semibold mb-3 sticky top-0 bg-white pb-2">Word List</h2>
+      <h2 className="text-xl font-semibold mb-3 sticky top-0 pb-2">Word List</h2>
       {wordList.length === 0 ? (
         <p className="text-gray-500 text-sm">No words added yet</p>
       ) : (

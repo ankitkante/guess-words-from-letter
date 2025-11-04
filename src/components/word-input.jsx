@@ -2,22 +2,16 @@ import { Spinner } from "@/components/ui/spinner";
 import { useState, useRef, useEffect } from "react";
 
 export default function WordInput({
-	setWordList
+	setWordList,
+	selectedLetter
 }) {
-	const letters = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
-	const [selectedLetter, setSelectedLetter] = useState(null);
 	const [loading, setLoading] = useState(false);
 
 
 	const [inputWord, setInputWord] = useState('');
-	const inputRef = useRef(null);
 
-	useEffect(() => {
-		if (selectedLetter && inputRef.current) {
-			inputRef.current.focus();
-		}
-	}, [selectedLetter]);
+
 	const handleWordSubmit = async () => {
 		if (!inputWord) return;
 
@@ -58,39 +52,23 @@ export default function WordInput({
 
 	return (
 		<div className="font-sans flex flex-col items-center justify-center p-4 gap-3 sm:p-8">
-			<h1 className="text-2xl sm:text-3xl font-bold text-center">
-				{selectedLetter ? `You selected ${selectedLetter}` : "Please select a letter"}
-			</h1>
-			<div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 sm:gap-3">
-				{letters.map((letter) => (
-					<button
-						key={letter}
-						onClick={() => setSelectedLetter(letter)}
-						className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border rounded-lg hover:bg-gray-100 text-xl sm:text-2xl"
-					>
-						{letter}
-					</button>
-				))}
-			</div>
-			{selectedLetter && (
-				<div className="mt-2">
-					<label className="block mb-2 text-sm sm:text-base">
-						Enter words that start with &apos;{selectedLetter}&apos;:
-					</label>
-					<div className="flex items-center">
-						<input
-							ref={inputRef}
-							type="text"
-							value={inputWord}
-							onChange={(e) => setInputWord(e.target.value)}
-							onKeyDown={handleKeyPress}
-							className="border rounded-lg p-2 w-48 sm:w-64 m-2"
-							placeholder={`Enter here`}
-						/>
-						{loading && <Spinner />}
-					</div>
+			<div className="mt-2">
+				<label className="block mb-2 text-sm sm:text-base">
+					Enter words that start with &apos;{selectedLetter}&apos; and press Enter:
+				</label>
+				<div className="flex items-center justify-center">
+					<input
+						type="text"
+						value={inputWord}
+						onChange={(e) => setInputWord(e.target.value)}
+						onKeyDown={handleKeyPress}
+						className="border rounded-lg p-2 w-48 sm:w-64 m-2"
+						placeholder={`Enter here`}
+						autoFocus
+					/>
+					{loading && <Spinner />}
 				</div>
-			)}
+			</div>
 		</div>
 	)
 }
