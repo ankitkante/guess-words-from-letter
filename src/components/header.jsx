@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
-    <header className="bg-black text-white p-4">
-      <img src="/logo.png" alt="Logo" className="h-12 w-12 inline-block mr-2" />
+    <header className="bg-black text-white p-4 text-center text-2xl font-bold">
+      <Link href={`/`}>A Simple Word Game</Link> 
     </header>
   );
 }
