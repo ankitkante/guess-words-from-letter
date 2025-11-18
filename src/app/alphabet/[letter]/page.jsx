@@ -36,12 +36,12 @@ export default function AlphabetDetailPage() {
         variant="outline"
         size="icon-lg"
         className="
-    rounded-full absolute bottom-4 right-4
-    bg-black
-    border-cyan-400/40 text-cyan-300
-    shadow-[0_0_12px_rgba(34,211,238,0.35)]
-    hover:bg-black hover:text-cyan-200 hover:border-cyan-300
-  "
+          rounded-full absolute bottom-4 right-4
+          bg-black
+          border-cyan-400/40 text-cyan-300
+          shadow-[0_0_12px_rgba(34,211,238,0.35)]
+          hover:bg-black hover:text-cyan-200 hover:border-cyan-300
+        "
         title="Submitted word list"
       >
         <ClipboardList className="h-6 w-6" />
@@ -56,7 +56,7 @@ export default function AlphabetDetailPage() {
       flex items-center justify-center
       text-[10px] leading-none"
           >
-            {wordList.length > 99 ? '99+' : wordList.length }
+            {wordList.length > 99 ? '99+' : wordList.length}
           </span>
         )}
       </Button>
