@@ -31,7 +31,7 @@ export default function AlphabetGrid({
             className={cn(
               "w-12 h-12 sm:w-14 sm:h-14",
               "flex items-center justify-center",
-              "bg-gradient-to-b from-cyan-600 to-cyan-800 text-white border border-cyan-400/50 hover:from-cyan-500 hover:to-cyan-700 transition-colors",
+              "bg-gradient-to-b from-cyan-600 to-cyan-800 text-white border border-cyan-400/50 hover:from-cyan-500 hover:to-cyan-700 transition-colors cursor-pointer",
               "border rounded-lg  text-xl sm:text-2xl alphabet"
             )}
           >

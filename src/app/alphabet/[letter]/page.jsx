@@ -21,15 +21,12 @@ export default function AlphabetDetailPage() {
         // "absolute left-1 top-1",
         "px-4 py-2 ",
       )} >{selectedAlphabet}</h2>
-      <div className="p-4 text-center flex mb-2 items-center">
+      <div className="p-4 text-center flex mb-10 items-center">
         <div className="flex-1">
           <h3 className="text-9xl ">{totalPoints}</h3>
           <p className="text-lg">Points</p>
         </div>
       </div>
-      <WordList
-        wordList={wordList}
-      />
       <WordInput
         selectedLetter={selectedAlphabet}
         setWordList={setWordList}
