@@ -1,5 +1,8 @@
 import { Spinner } from "@/components/ui/spinner";
 import { useState, useRef, useEffect } from "react";
+import { ButtonGroup } from "./ui/button-group";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function WordInput({
 	setWordList,
@@ -55,20 +58,27 @@ export default function WordInput({
 	return (
 		<div className="font-sans flex flex-col items-center justify-center p-4 gap-3 sm:p-8">
 			<div className="flex flex-col justify-center">
-			<div className="flex flex-1 items-center justify-center">
-				<input
-					type="text"
-					value={inputWord}
-					onChange={(e) => setInputWord(e.target.value)}
-					onKeyDown={handleKeyPress}
-					className="border border-white rounded-lg p-2 w-60 sm:w-72 m-2"
-					placeholder={`Enter words with ${selectedLetter}`}
-				/>
-				<div className="w-6 flex items-center justify-center">
-					{loading && <Spinner />}
+				<div className="flex flex-1 items-center justify-center">
+					<ButtonGroup>
+						<input
+							type="text"
+							value={inputWord}
+							onChange={(e) => setInputWord(e.target.value)}
+							onKeyDown={handleKeyPress}
+							className="border border-white rounded-lg w-60 sm:w-72 px-2"
+							placeholder={`Enter words with ${selectedLetter}`}
+						/>
+						<Button 
+							variant="outline" 
+							onClick={handleWordSubmit} 
+							className="bg-black hover:bg-black text-white hover:text-white cursor-pointer"
+							disabled={loading || error}
+						>
+							{loading ? <Spinner />: <ArrowRight/>}
+						</Button>
+					</ButtonGroup>
 				</div>
-			</div>
-			{error && <p className="text-red-500 pl-2 text-sm">{error}</p>}
+				{error && <p className="text-red-500 text-sm">{error}</p>}
 			</div>
 		</div>
 	)
