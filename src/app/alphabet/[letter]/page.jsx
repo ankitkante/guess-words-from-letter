@@ -18,7 +18,7 @@ export default function AlphabetDetailPage() {
   }, [wordList]);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-64px)] relative">
+    <div className="flex flex-col h-[calc(100dvh-64px)] relative">
       <h2 className={cn(
         "text-6xl font-extrabold tracking-wide text-amber-300",
         // "absolute left-1 top-1",
