@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import WordInput from "@/components/word-input";
+import WordList from "@/components/word-list";
 import { cn } from "@/lib/utils";
-import { ClipboardList, Route } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
 
@@ -49,18 +50,20 @@ export default function AlphabetDetailPage() {
         {wordList.length > 0 && (
           <span
             className="
-      absolute -bottom-1 right-1
-      bg-cyan-400/20 text-cyan-200
-      rounded-full 
-      w-4 h-4 
-      flex items-center justify-center
-      text-[10px] leading-none"
+              absolute -bottom-1 right-1
+              bg-cyan-400/20 text-cyan-200
+              rounded-full 
+              w-4 h-4 
+              flex items-center justify-center
+              text-[10px] leading-none
+            "
           >
             {wordList.length > 99 ? '99+' : wordList.length}
           </span>
         )}
       </Button>
-
+      
+      <WordList wordList={wordList} />
 
     </div>
   )
