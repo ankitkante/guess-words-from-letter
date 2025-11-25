@@ -1,9 +1,11 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import WordInput from "@/components/word-input";
+import WordList from "@/components/word-list";
 import { cn } from "@/lib/utils";
-import { ClipboardList, Route } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
 
@@ -16,7 +18,7 @@ export default function AlphabetDetailPage() {
   }, [wordList]);
 
   return (
-    <div className="flex flex-col bg-black h-[calc(100vh-64px)] text-white relative">
+    <div className="flex flex-col h-[calc(100vh-64px)] relative">
       <h2 className={cn(
         "text-6xl font-extrabold tracking-wide text-amber-300",
         // "absolute left-1 top-1",
@@ -32,35 +34,47 @@ export default function AlphabetDetailPage() {
         selectedLetter={selectedAlphabet}
         setWordList={setWordList}
       />
-      <Button
-        variant="outline"
-        size="icon-lg"
-        className="
-          rounded-full absolute bottom-4 right-4
-          bg-black
-          border-cyan-400/40 text-cyan-300
-          shadow-[0_0_12px_rgba(34,211,238,0.35)]
-          hover:bg-black hover:text-cyan-200 hover:border-cyan-300
-        "
-        title="Submitted word list"
-      >
-        <ClipboardList className="h-6 w-6" />
-
-        {wordList.length > 0 && (
-          <span
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button
+            variant="outline"
+            size="icon-lg"
             className="
-      absolute -bottom-1 right-1
-      bg-cyan-400/20 text-cyan-200
-      rounded-full 
-      w-4 h-4 
-      flex items-center justify-center
-      text-[10px] leading-none"
+              rounded-full absolute bottom-4 right-4 cursor-pointer
+              border-cyan-400/40 text-cyan-300
+              shadow-[0_0_12px_rgba(34,211,238,0.35)]
+              hover:text-cyan-200 hover:border-cyan-300
+            "
+            title="Submitted word list"
           >
-            {wordList.length > 99 ? '99+' : wordList.length}
-          </span>
-        )}
-      </Button>
+            <ClipboardList className="h-6 w-6" />
 
+            {wordList.length > 0 && (
+              <span
+                className="
+                  absolute -bottom-1 right-1
+                  bg-cyan-400/20 text-cyan-200
+                  rounded-full 
+                  w-4 h-4 
+                  flex items-center justify-center
+                  text-[10px] leading-none
+                "
+              >
+                {wordList.length > 99 ? '99+' : wordList.length}
+              </span>
+            )}
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="bottom" className="p-0 flex flex-col h-[30vh] min-h-0">
+          <SheetHeader>
+            <SheetTitle className="text-xl font-semibold">Submitted Words</SheetTitle>
+            <SheetDescription>
+              Here is the list of words you have submitted for the letter "{selectedAlphabet}".
+            </SheetDescription>
+          </SheetHeader>
+          <WordList wordList={wordList} />
+        </SheetContent>
+      </Sheet>
 
     </div>
   )

@@ -71,7 +71,7 @@ export default function WordInput({
 						<Button 
 							variant="outline" 
 							onClick={handleWordSubmit} 
-							className="bg-black hover:bg-black text-white hover:text-white cursor-pointer"
+							className="cursor-pointer"
 							disabled={loading || error}
 						>
 							{loading ? <Spinner />: <ArrowRight/>}
