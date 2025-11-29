@@ -1,5 +1,6 @@
 'use client';
 
+import SpeechToTextBtn from "@/components/speech-to-text-btn";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import WordInput from "@/components/word-input";
@@ -17,6 +18,10 @@ export default function AlphabetDetailPage() {
     return wordList.reduce((acc, item) => acc + item.point, 0);
   }, [wordList]);
 
+  const onResult = (word) => {
+    console.log(word)
+  }
+
   return (
     <div className="flex flex-col h-[calc(100dvh-64px)] relative">
       <h2 className={cn(
@@ -30,10 +35,14 @@ export default function AlphabetDetailPage() {
           <p className="text-lg">Points</p>
         </div>
       </div>
-      <WordInput
-        selectedLetter={selectedAlphabet}
-        setWordList={setWordList}
-      />
+      <div className="flex flex-col items-center justify-center gap-4 p-4">
+        <SpeechToTextBtn onResult={onResult}/>
+        <span>OR</span>
+        <WordInput
+          selectedLetter={selectedAlphabet}
+          setWordList={setWordList}
+        />
+      </div>
       <Sheet>
         <SheetTrigger asChild>
           <Button

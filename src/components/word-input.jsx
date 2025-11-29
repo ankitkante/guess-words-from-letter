@@ -56,7 +56,7 @@ export default function WordInput({
 	};
 
 	return (
-		<div className="font-sans flex flex-col items-center justify-center p-4 gap-3 sm:p-8">
+		<div className="font-sans flex flex-col items-center justify-center px-4 gap-3 sm:px-8">
 			<div className="flex flex-col justify-center">
 				<div className="flex flex-1 items-center justify-center">
 					<ButtonGroup>
