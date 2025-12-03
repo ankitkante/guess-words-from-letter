@@ -44,12 +44,13 @@ export default function AlphabetDetailClient({ selectedAlphabet }) {
             variant="outline"
             size="icon-lg"
             className="
-              rounded-full absolute bottom-4 right-4 cursor-pointer
+              rounded-full absolute top-4 right-4 cursor-pointer
               border-cyan-400/40 text-cyan-300
               shadow-[0_0_12px_rgba(34,211,238,0.35)]
               hover:text-cyan-200 hover:border-cyan-300
             "
             title="Submitted word list"
+            aria-label="Open submitted words"
           >
             <ClipboardList className="h-6 w-6" />
 
