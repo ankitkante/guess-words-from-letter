@@ -1,4 +1,3 @@
-'use client';
 import AlphabetGrid from "@/components/alphabet-grid";
 
 export default function AlphabetsPage() {

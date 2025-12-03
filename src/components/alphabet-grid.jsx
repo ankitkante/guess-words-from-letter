@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import { motion, stagger } from "motion/react"
 import { useEffect } from "react";
