@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import { motion, stagger } from "motion/react"
 import { useEffect } from "react";
@@ -25,7 +27,7 @@ export default function AlphabetGrid({
         {letters.map((letter) => (
           <motion.button
             key={letter}
-            onClick={() => router.push(`/alphabet/${letter}`)}
+            onClick={() => router.push(`/alphabets/${letter}`)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className={cn(

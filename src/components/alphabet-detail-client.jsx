@@ -1,21 +1,22 @@
-'use client';
-
+"use client";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import WordInput from "@/components/word-input";
 import WordList from "@/components/word-list";
 import { cn } from "@/lib/utils";
 import { ClipboardList } from "lucide-react";
-import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
 
-export default function AlphabetDetailPage() {
-  const { letter: selectedAlphabet } = useParams();
+export default function AlphabetDetailClient({ selectedAlphabet }) {
   const [wordList, setWordList] = useState([]);
 
   const totalPoints = useMemo(() => {
     return wordList.reduce((acc, item) => acc + item.point, 0);
   }, [wordList]);
+
+  const onResult = (word) => {
+    console.log(word)
+  }
 
   return (
     <div className="flex flex-col h-[calc(100dvh-64px)] relative">
@@ -30,10 +31,12 @@ export default function AlphabetDetailPage() {
           <p className="text-lg">Points</p>
         </div>
       </div>
-      <WordInput
-        selectedLetter={selectedAlphabet}
-        setWordList={setWordList}
-      />
+      <div className="flex flex-col items-center justify-center gap-4 p-4">
+        <WordInput
+          selectedLetter={selectedAlphabet}
+          setWordList={setWordList}
+        />
+      </div>
       <Sheet>
         <SheetTrigger asChild>
           <Button
@@ -75,7 +78,6 @@ export default function AlphabetDetailPage() {
           <WordList wordList={wordList} />
         </SheetContent>
       </Sheet>
-
     </div>
-  )
+  );
 }
