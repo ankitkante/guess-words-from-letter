@@ -35,6 +35,7 @@ export default function AlphabetDetailClient({ selectedAlphabet }) {
         <WordInput
           selectedLetter={selectedAlphabet}
           setWordList={setWordList}
+          wordList={wordList}
         />
       </div>
       <Sheet>
@@ -68,14 +69,16 @@ export default function AlphabetDetailClient({ selectedAlphabet }) {
             )}
           </Button>
         </SheetTrigger>
-        <SheetContent side="bottom" className="p-0 flex flex-col h-[30vh] min-h-0">
+        <SheetContent side="right" className="p-0 flex flex-col h-full min-h-0 w-[60vw] sm:max-w-sm">
           <SheetHeader>
             <SheetTitle className="text-xl font-semibold">Submitted Words</SheetTitle>
             <SheetDescription>
               Here is the list of words you have submitted for the letter "{selectedAlphabet}".
             </SheetDescription>
           </SheetHeader>
-          <WordList wordList={wordList} />
+          <div className="overflow-y-auto p-2">
+            <WordList wordList={wordList} />
+          </div>
         </SheetContent>
       </Sheet>
     </div>

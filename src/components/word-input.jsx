@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 
 export default function WordInput({
 	setWordList,
-	selectedLetter
+	selectedLetter,
+	wordList = []
 }) {
 
 	const [loading, setLoading] = useState(false);
@@ -78,6 +79,13 @@ export default function WordInput({
 	const handleWordSubmit = async () => {
 		if (!inputWord) return;
 
+		// Check if word already exists in the list
+		const isDuplicate = wordList.some(item => item.word.toLowerCase() === inputWord.toLowerCase())
+		if (isDuplicate) {
+			setError(`"${inputWord}" has already been submitted`);
+			return;
+		}
+
 		if (!inputWord.toUpperCase().startsWith(selectedLetter)) {
 			setError(`Word must start with ${selectedLetter}`);
 			return;
@@ -144,8 +152,8 @@ export default function WordInput({
 						className="flex-1 bg-transparent outline-none text-foreground placeholder-muted-foreground text-sm sm:text-base"
 						placeholder={`Enter words with ${selectedLetter}`}
 					/>
-					<Button 
-						variant="ghost" 
+					<Button
+						variant="ghost"
 						size="icon"
 						onClick={onSpeechMode}
 						disabled={voiceState !== 'idle'}
@@ -161,10 +169,10 @@ export default function WordInput({
 						{voiceState === 'listening' && <Mic className="size-5" />}
 						{voiceState === 'processing' && <Spinner />}
 					</Button>
-					<Button 
-						variant="ghost" 
+					<Button
+						variant="ghost"
 						size="icon"
-						onClick={handleWordSubmit} 
+						onClick={handleWordSubmit}
 						className="rounded-full shrink-0 cursor-pointer hover:bg-accent"
 						disabled={loading || error}
 					>
