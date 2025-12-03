@@ -35,6 +35,7 @@ export default function AlphabetDetailClient({ selectedAlphabet }) {
         <WordInput
           selectedLetter={selectedAlphabet}
           setWordList={setWordList}
+          wordList={wordList}
         />
       </div>
       <Sheet>
