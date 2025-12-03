@@ -13,9 +13,9 @@ export default function Home() {
             The faster you think, the more points you earn. Can you become a word master?
           </p>
           <div className="text-lg text-gray-300 mb-8">
-            <p>✨ Challenge yourself with different letters</p>
-            <p>🎯 Earn points for valid words</p>
-            <p>⚡ Beat the clock for bonus points</p>
+            <p>• Challenge yourself with different letters</p>
+            <p>• Earn points for valid words</p>
+            <p>• Beat the clock for bonus points</p>
           </div>
         </div>
 

@@ -98,7 +98,7 @@ export default function WordInput({
 					<p className="text-amber-400 text-xs sm:text-sm text-center font-medium">Setting up microphone...</p>
 				)}
 				{voiceState === 'listening' && (
-					<p className="text-emerald-400 text-xs sm:text-sm text-center font-medium animate-pulse">🎤 Speak now!</p>
+					<p className="text-emerald-400 text-xs sm:text-sm text-center font-medium animate-pulse">Speak now!</p>
 				)}
 				{voiceState === 'processing' && (
 					<p className="text-indigo-400 text-xs sm:text-sm text-center font-medium">Processing your speech...</p>
