@@ -72,9 +72,9 @@ export default function SpeechToTextBtn({ onResult }) {
   useEffect(() => {
     return () => {
       // Cleanup listeners on unmount
-      connectionRef.current.removeListener(LiveTranscriptionEvents.Open, onOpen)
-      connectionRef.current.removeListener(LiveTranscriptionEvents.Transcript, onTranscript)
-      recorderRef.current.removeEventListener("dataavailable", onAudioDataAvailable)
+      connectionRef.current?.removeListener(LiveTranscriptionEvents.Open, onOpen)
+      connectionRef.current?.removeListener(LiveTranscriptionEvents.Transcript, onTranscript)
+      recorderRef.current?.removeEventListener("dataavailable", onAudioDataAvailable)
     }
   }, [])
 

@@ -48,43 +48,21 @@ export default function AlphabetDetailPage() {
           <Button
             variant="outline"
             size="icon-lg"
-            className="
-              rounded-full absolute bottom-4 right-4 cursor-pointer
-              border-cyan-400/40 text-cyan-300
-              shadow-[0_0_12px_rgba(34,211,238,0.35)]
-              hover:text-cyan-200 hover:border-cyan-300
-            "
-            title="Submitted word list"
+            className="absolute bottom-4 right-4"
           >
-            <ClipboardList className="h-6 w-6" />
-
-            {wordList.length > 0 && (
-              <span
-                className="
-                  absolute -bottom-1 right-1
-                  bg-cyan-400/20 text-cyan-200
-                  rounded-full 
-                  w-4 h-4 
-                  flex items-center justify-center
-                  text-[10px] leading-none
-                "
-              >
-                {wordList.length > 99 ? '99+' : wordList.length}
-              </span>
-            )}
+            <ClipboardList />
           </Button>
         </SheetTrigger>
-        <SheetContent side="bottom" className="p-0 flex flex-col h-[30vh] min-h-0">
+        <SheetContent side="bottom" className="max-h-[60vh]">
           <SheetHeader>
-            <SheetTitle className="text-xl font-semibold">Submitted Words</SheetTitle>
+            <SheetTitle>Word List</SheetTitle>
             <SheetDescription>
-              Here is the list of words you have submitted for the letter "{selectedAlphabet}".
+              All words you have submitted
             </SheetDescription>
           </SheetHeader>
           <WordList wordList={wordList} />
         </SheetContent>
       </Sheet>
-
     </div>
-  )
+  );
 }
