@@ -1,20 +1,19 @@
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { Handle, Position } from "@xyflow/react";
 
-export default function WordNode({ data: {label, point} }) {
+export default function WordNode({ label, point }) {
   return (
-    <div className="flex items-center gap-1" key={label}>
+    <div className="flex items-center">
       <Button
         className={cn(
-          "p-3 text-sm",
-          point === -1 ? "bg-red-600 hover:bg-red-600" : "bg-green-600 hover:bg-green-600"
+          "px-4 py-2 text-sm rounded-full shadow-sm transition-transform transform-gpu hover:-translate-y-0.5",
+          point === -1
+            ? "bg-red-600 hover:bg-red-500"
+            : "bg-emerald-600 hover:bg-emerald-500"
         )}
       >
         {label}
-        <Handle type="source" position={Position.Right} className="!bg-white"></Handle>
-        <Handle type="target" position={Position.Left} className="!bg-white"></Handle>
       </Button>
     </div>
-  )
+  );
 }
