@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Word Game",
-  description: "A game where you select a letter and suggest words starting with that letter to earn points.",
+  title: "VerbaPlay",
+  description: "Your ultimated destination for word games and vocabulary challenges.",
 };
 
 export default function RootLayout({ children }) {
